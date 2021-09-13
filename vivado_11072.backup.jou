@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2012.4 (64-bit)
+# Build 222254 by xbuild on Tue Dec 18 05:21:09 MST 2012
+# Start of session at: Thu Sep 02 17:26:12 2021
+# Process ID: 11072
+# Log file: D:/Library_Projects_FPGA/GeopticCam/vivado.log
+# Journal file: D:/Library_Projects_FPGA/GeopticCam\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:\Library_Projects_FPGA\GeopticCam\GeopticCam.xpr}

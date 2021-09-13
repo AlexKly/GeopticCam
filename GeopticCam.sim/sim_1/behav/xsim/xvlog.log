@@ -1,0 +1,24 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock
+WARNING: [VRFC 10-3467] initial value of parameter 'COUNTER_WIDTH' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:24]
+WARNING: [VRFC 10-3467] initial value of parameter 'COUNTER_END' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:25]
+WARNING: [VRFC 10-3467] initial value of parameter 'COUNTER_HIGH' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:26]
+WARNING: [VRFC 10-3467] initial value of parameter 'COUNTER_RISE' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:27]
+WARNING: [VRFC 10-3467] initial value of parameter 'MULTI_MASTER' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:28]
+WARNING: [VRFC 10-3467] initial value of parameter 'CLOCK_STRETCHING' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:29]
+WARNING: [VRFC 10-3467] initial value of parameter 'WAIT_WIDTH' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:30]
+WARNING: [VRFC 10-3467] initial value of parameter 'WAIT_END' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:31]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_core
+WARNING: [VRFC 10-3467] initial value of parameter 'INPUT_CLK_RATE' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:25]
+WARNING: [VRFC 10-3467] initial value of parameter 'TARGET_SCL_RATE' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:27]
+WARNING: [VRFC 10-3467] initial value of parameter 'CLOCK_STRETCHING' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:31]
+WARNING: [VRFC 10-3467] initial value of parameter 'MULTI_MASTER' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:35]
+WARNING: [VRFC 10-3467] initial value of parameter 'SLOWEST_DEVICE_RATE' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:38]
+WARNING: [VRFC 10-3467] initial value of parameter 'FORCE_PUSH_PULL' is omitted [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:44]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_master.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i2c_master
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/imx219.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module imx219
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sim_1/new/imx219_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module imx219_tb

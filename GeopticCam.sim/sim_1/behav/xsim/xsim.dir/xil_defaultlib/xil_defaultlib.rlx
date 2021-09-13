@@ -1,0 +1,12 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sim_1/new/imx219_tb.sv,1631191429,systemVerilog,,,,imx219_tb,,,,,,,,
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sim_1/new/tb_I2C_CCI.vhd,1631168264,vhdl,,,,tb_i2c_cci,,,,,,,,
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/I2C_CCI.v,1631174491,verilog,,,,I2C_CCI,,,,,,,,
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv,1630590934,systemVerilog,,D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv,,clock,,,,,,,,
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv,1630590937,systemVerilog,,D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_master.sv,,i2c_core,,,,,,,,
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_master.sv,1630590708,systemVerilog,,D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/imx219.sv,,i2c_master,,,,,,,,
+D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/imx219.sv,1631191639,systemVerilog,,D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sim_1/new/imx219_tb.sv,,imx219,,,,,,,,

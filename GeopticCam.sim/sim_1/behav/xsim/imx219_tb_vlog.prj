@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../GeopticCam.srcs/sources_1/new/clock.sv" \
+"../../../../GeopticCam.srcs/sources_1/new/i2c_core.sv" \
+"../../../../GeopticCam.srcs/sources_1/new/i2c_master.sv" \
+"../../../../GeopticCam.srcs/sources_1/new/imx219.sv" \
+"../../../../GeopticCam.srcs/sim_1/new/imx219_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,497 @@
+
+*** Running vivado
+    with args -log imx219.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source imx219.tcl
+
+
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source imx219.tcl -notrace
+Command: synth_design -top imx219 -part xc7a35tftg256-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tftg256-2
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 2820 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 798.652 ; gain = 180.941
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'imx219' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/imx219.sv:23]
+	Parameter INPUT_CLK_RATE bound to: 32'sb00000010111110101111000010000000 
+	Parameter TARGET_SCL_RATE bound to: 32'sb00000000000001100001101010000000 
+	Parameter ADDRESS bound to: 8'b00110100 
+INFO: [Synth 8-6157] synthesizing module 'i2c_master' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_master.sv:23]
+	Parameter INPUT_CLK_RATE bound to: 32'sb00000010111110101111000010000000 
+	Parameter TARGET_SCL_RATE bound to: 32'sb00000000000001100001101010000000 
+	Parameter CLOCK_STRETCHING bound to: 1'b1 
+	Parameter MULTI_MASTER bound to: 1'b0 
+	Parameter SLOWEST_DEVICE_RATE bound to: 32'sb00000000000000000000000001100100 
+	Parameter FORCE_PUSH_PULL bound to: 1'b0 
+INFO: [Synth 8-6157] synthesizing module 'i2c_core' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:23]
+	Parameter INPUT_CLK_RATE bound to: 32'sb00000010111110101111000010000000 
+	Parameter TARGET_SCL_RATE bound to: 32'sb00000000000001100001101010000000 
+	Parameter CLOCK_STRETCHING bound to: 1'b1 
+	Parameter MULTI_MASTER bound to: 1'b0 
+	Parameter SLOWEST_DEVICE_RATE bound to: 32'sb00000000000000000000000001100100 
+	Parameter FORCE_PUSH_PULL bound to: 1'b0 
+	Parameter MODE bound to: 32'sb00000000000000000000000000000001 
+	Parameter COUNTER_WIDTH bound to: 32'sb00000000000000000000000000000111 
+	Parameter COUNTER_END bound to: 7'b1111100 
+	Parameter COUNTER_HIGH bound to: 7'b1010011 
+	Parameter COUNTER_RISE bound to: 7'b0010000 
+	Parameter WAIT_WIDTH bound to: 32'sb00000000000000000000000000010011 
+	Parameter WAIT_END bound to: 19'b1111010000100011111 
+	Parameter TLOW_MIN bound to: 1.300000 - type: float 
+	Parameter THIGH_MIN bound to: 0.600000 - type: float 
+	Parameter COUNTER_SETUP_REPEATED_START bound to: 7'b1000001 
+	Parameter COUNTER_BUS_FREE bound to: 7'b1000001 
+	Parameter COUNTER_HOLD_REPEATED_START bound to: 7'b0011110 
+	Parameter COUNTER_SETUP_STOP bound to: 7'b0011110 
+	Parameter COUNTER_TRANSMIT bound to: 7'b0101001 
+	Parameter COUNTER_RECEIVE bound to: 7'b1100011 
+INFO: [Synth 8-6157] synthesizing module 'clock' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:23]
+	Parameter COUNTER_WIDTH bound to: 32'sb00000000000000000000000000000111 
+	Parameter COUNTER_END bound to: 7'b1111100 
+	Parameter COUNTER_HIGH bound to: 7'b1010011 
+	Parameter COUNTER_RISE bound to: 7'b0010000 
+	Parameter MULTI_MASTER bound to: 1'b0 
+	Parameter CLOCK_STRETCHING bound to: 1'b1 
+	Parameter WAIT_WIDTH bound to: 32'sb00000000000000000000000000010011 
+	Parameter WAIT_END bound to: 19'b1111010000100011111 
+	Parameter PUSH_PULL bound to: 1'b0 
+WARNING: [Synth 8-6014] Unused sequential element last_scl_reg was removed.  [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:49]
+INFO: [Synth 8-6155] done synthesizing module 'clock' (1#1) [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/clock.sv:23]
+WARNING: [Synth 8-6014] Unused sequential element last_sda_reg was removed.  [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:136]
+INFO: [Synth 8-4471] merging register 'arbitration_err_reg' into 'start_err_reg' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:163]
+INFO: [Synth 8-4471] merging register 'interrupt_reg' into 'transaction_complete_reg' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:167]
+WARNING: [Synth 8-6014] Unused sequential element arbitration_err_reg was removed.  [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:163]
+WARNING: [Synth 8-6014] Unused sequential element interrupt_reg was removed.  [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:167]
+INFO: [Synth 8-6155] done synthesizing module 'i2c_core' (2#1) [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_core.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'i2c_master' (3#1) [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/i2c_master.sv:23]
+WARNING: [Synth 8-7023] instance 'i2c_master' of module 'i2c_master' has 16 connections declared, but only 14 given [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/imx219.sv:79]
+INFO: [Synth 8-6155] done synthesizing module 'imx219' (4#1) [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/imx219.sv:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 863.188 ; gain = 245.477
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 863.188 ; gain = 245.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 863.188 ; gain = 245.477
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc]
+WARNING: [Vivado 12-584] No ports matched 'id_camera{0}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{1}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{2}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{3}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{4}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{5}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{6}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{7}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{0}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:25]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{1}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:26]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:26]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{2}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:27]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{3}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:28]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{4}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:29]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:29]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{5}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:30]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:30]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{6}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:31]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'id_camera{7}'. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/imx219_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/imx219_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 986.297 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 986.297 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 986.297 ; gain = 368.586
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tftg256-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 986.297 ; gain = 368.586
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 986.297 ; gain = 368.586
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6040] Register rom_counter_reg_rep driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+INFO: [Synth 8-5544] ROM "PRE_STANDBY" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+WARNING: [Synth 8-6040] Register rom_counter_reg_rep driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 986.297 ; gain = 368.586
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 5     
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 13    
++---Muxes : 
+	   3 Input     25 Bit        Muxes := 2     
+	   2 Input     25 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 12    
+	   3 Input      8 Bit        Muxes := 1     
+	   3 Input      7 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 2     
+	   3 Input      6 Bit        Muxes := 2     
+	   2 Input      6 Bit        Muxes := 4     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 41    
+	   3 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 9     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module imx219 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 4     
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   3 Input     25 Bit        Muxes := 2     
+	   2 Input     25 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 5     
+	   2 Input      6 Bit        Muxes := 2     
+	   3 Input      6 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   2 Input      2 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 9     
+	   2 Input      1 Bit        Muxes := 9     
+Module clock 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      7 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   3 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module i2c_core 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 2     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 6     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 28    
+	   3 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 1     
+Module i2c_master 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-6040] Register rom_counter_reg_rep driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+INFO: [Synth 8-3886] merging instance 'address_reg[1]' (FDE) to 'address_reg[3]'
+INFO: [Synth 8-3886] merging instance 'address_reg[2]' (FDE) to 'address_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\address_reg[3] )
+INFO: [Synth 8-3886] merging instance 'address_reg[4]' (FDE) to 'address_reg[5]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\address_reg[5] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 986.297 ; gain = 368.586
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|imx219      | PRE_STREAM | 256x24        | LUT            | 
+|imx219      | PRE_STREAM | 256x24        | LUT            | 
++------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 986.297 ; gain = 368.586
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 990.152 ; gain = 372.441
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 999.180 ; gain = 381.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5365] Flop i2c_master/core/clock/scl_internal_reg is being inverted and renamed to i2c_master/core/clock/scl_internal_reg_inv.
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |BUFG  |     1|
+|2     |LUT1  |     3|
+|3     |LUT2  |    17|
+|4     |LUT3  |    18|
+|5     |LUT4  |    29|
+|6     |LUT5  |    38|
+|7     |LUT6  |   157|
+|8     |MUXF7 |    32|
+|9     |MUXF8 |     8|
+|10    |FDRE  |    72|
+|11    |FDSE  |     3|
+|12    |IBUF  |     1|
+|13    |IOBUF |     2|
+|14    |OBUF  |    12|
++------+------+------+
+
+Report Instance Areas: 
++------+-------------+-----------+------+
+|      |Instance     |Module     |Cells |
++------+-------------+-----------+------+
+|1     |top          |           |   393|
+|2     |  i2c_master |i2c_master |   180|
+|3     |    core     |i2c_core   |   177|
+|4     |      clock  |clock      |   102|
++------+-------------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1004.973 ; gain = 264.152
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1004.973 ; gain = 387.262
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 42 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1020.059 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+29 Infos, 24 Warnings, 16 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1020.059 ; gain = 663.066
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1020.059 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/synth_1/imx219.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file imx219_utilization_synth.rpt -pb imx219_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 13 13:12:16 2021...
