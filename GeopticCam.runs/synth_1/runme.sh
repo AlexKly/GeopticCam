@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log imx219.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source imx219.tcl
+EAStep vivado -log IMX477_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source IMX477_wrapper.tcl

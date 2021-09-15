@@ -24,6 +24,7 @@ module I2C_CCI(
     // Common ports:
     input               clk,
     input               reset,
+    input               start_i2c,
     
     // I2C ports:
     output              scl,
@@ -31,12 +32,7 @@ module I2C_CCI(
     input               sda_i,
     
     // Data ports:
-    input               tvalid_data_wr,
-    input       [7:0]   slave_addr,
-    input       [15:0]  register_addr,
-    input       [7:0]   data_wr,
-    output reg          tvalid_data_rd,
-    output reg  [7:0]   data_rd,
+    //output reg [7:0]    data_tx,
     
     // Status I2C ports:
     output reg          i2c_ready,
@@ -44,154 +40,150 @@ module I2C_CCI(
     output reg          status_acknowledge
     );
     
-    // States of FM I2C CCI:
-    localparam  [3:0] IDLE                  = 0;
-    localparam  [3:0] SEND_START_CONDITION  = 1;
-    localparam  [3:0] SEND_SLAVE_ADDRESS    = 2;
-    localparam  [3:0] GET_ACKNOWLEDGE       = 3;
-    localparam  [3:0] SEND_REGISTER_ADDRESS = 4;
-    localparam  [3:0] SEND_DATA             = 5;
-    localparam  [3:0] GET_DATA              = 6;
-    localparam  [3:0] SEND_ACKNOWLEDGE      = 7;
-    localparam  [3:0] SEND_STOP_CONDITION   = 8;
-    reg         [3:0] fsm_st_i2c            = IDLE;
+    reg         en_scl                  = 1'b0;
+    reg [4:0]   cnt_bits                = 0;
+    reg [7:0]   slave_address           = 8'b00110100;
+    reg [7:0]   repeated_slave_address  = 8'b00110101;
+    reg [15:0]  register_address        = 16'h0100;
+    reg [7:0]   register_to_send        = 8'h01;
     
-    reg         en_scl              = 1'b0;
-    reg [3:0]   cnt_bits            = 0;
-    reg [3:0]   cnt_data_bits_rx    = 0;
-    reg [31:0]  protocol            = {32{1'b0}};
-    reg         rw_mode;
-    reg [1:0]   step_acknoledge     = 0;
+    // States of FM controller CCI IMX477:
+    localparam  [2:0] IDLE                      = 0;
+    localparam  [2:0] SEND_INDEX                = 1;
+    localparam  [2:0] PREPEARE_FOR_READING      = 2;
+    localparam  [2:0] READ_DATA                 = 3;
+    localparam  [2:0] WRITE_DATA                = 4;
+    reg         [2:0] fsm_st_CCI                = IDLE;
     
     always@ (negedge clk) begin
-        if (reset) begin
-            i2c_ready       <= 1'b1;
-            en_scl          <= 1'b0;
-            cnt_bits        <= 0;
-            protocol        <= {32{1'b0}};
-            step_acknoledge <= 0;
-        
-            fsm_st_i2c <= IDLE;
-        end
-        else begin
-            if (tvalid_data_wr) begin
-                protocol[31:24] <= slave_addr;
-                protocol[23:8]  <= register_addr;
-                protocol[7:0]   <= data_wr;
-                rw_mode         <= protocol[24];
+        case (fsm_st_CCI)
+            IDLE: begin
+                i2c_io_mode <= 1'b1;
+                if (start_i2c) begin
+                    sda_o <= 1'b0;
+      
+                    fsm_st_CCI <= SEND_INDEX;
+                end
+                else begin
+                    sda_o <= 1'bz;
+                end
             end
             
-            case (fsm_st_i2c)
-                IDLE: begin
-                    if (tvalid_data_wr) begin
-                        sda_o           <= 1'b0;
-                        i2c_ready       <= 1'b0;
-                        step_acknoledge <= 0;
+            SEND_INDEX: begin
+                en_scl <= 1'b1;
+                cnt_bits <= cnt_bits + 1;
+                if (cnt_bits < 8) begin
+                    sda_o               <= slave_address[7];
+                    slave_address[7:1]  <= slave_address[6:0];
+                end
+                else if (cnt_bits == 8) begin
+                    i2c_io_mode         <= 1'b0;
+                    status_acknowledge  <= sda_i;
+                end
+                else if (cnt_bits > 8 && cnt_bits <= 16) begin
+                    i2c_io_mode             <= 1'b1;
+                    sda_o                   <= register_address[15];
+                    register_address[15:1]  <= register_address[14:0];
+                end
+                else if (cnt_bits == 17) begin
+                    i2c_io_mode         <= 1'b0;
+                    status_acknowledge  <= sda_i;
+                end
+                else if (cnt_bits > 17 && cnt_bits <= 25) begin
+                    i2c_io_mode             <= 1'b1;
+                    sda_o                   <= register_address[15];
+                    register_address[15:1]  <= register_address[14:0];
+                end
+                else if (cnt_bits == 26) begin
+                    i2c_io_mode         <= 1'b0;
+                    status_acknowledge  <= sda_i;
+                    cnt_bits            <= 0;
                     
-                        fsm_st_i2c <= SEND_START_CONDITION;
-                    end
-                    else begin
-                        sda_o <= 1'bz;
-                    end
+                    fsm_st_CCI <= WRITE_DATA;
                 end
-                
-                SEND_START_CONDITION: begin
-                    sda_o           <= protocol[31];
-                    en_scl          <= 1'b1;
-                    cnt_bits        <= cnt_bits + 1;
-                    protocol[31:1]  <= protocol[30:0];
+                /*
+                else if (cnt_bits == 27) begin
+                    i2c_io_mode <= 1'b1;
+                    sda_o       <= 1'bz;
+                end
+                else if (cnt_bits == 28) begin
+                    cnt_bits    <= 0;
+                    en_scl      <= 1'b0;
                     
-                    fsm_st_i2c <= SEND_SLAVE_ADDRESS;
+                    fsm_st_CCI <= WRITE_DATA;
                 end
-                
-                SEND_SLAVE_ADDRESS: begin
-                    cnt_bits <= cnt_bits + 1;
-                    if (cnt_bits <= 7) begin
-                        sda_o           <= protocol[31];
-                        protocol[31:1]  <= protocol[30:0];
-                    end
-                    else begin
-                        cnt_bits <= 0;
-                        
-                        fsm_st_i2c <= GET_ACKNOWLEDGE;
-                    end
+                */
+            end
+            
+            WRITE_DATA: begin
+                cnt_bits <= cnt_bits + 1;
+                if (cnt_bits < 8) begin
+                    i2c_io_mode             <= 1'b1;
+                    sda_o                   <= register_to_send[7];
+                    register_to_send[7:1]   <= register_to_send[6:0];
                 end
-                
-                GET_ACKNOWLEDGE: begin
-                    step_acknoledge <= step_acknoledge + 1;
-                    if (step_acknoledge < 3) begin
-                        sda_o           <= protocol[31];
-                        cnt_bits        <= cnt_bits + 1;
-                        protocol[31:1]  <= protocol[30:0];
-                    end
-                
-                    if (step_acknoledge < 2) begin
-                        fsm_st_i2c <= SEND_REGISTER_ADDRESS;
-                    end
-                    else if (step_acknoledge == 2) begin
-                        if (!rw_mode) begin
-                            fsm_st_i2c <= SEND_DATA;
-                        end
-                        else begin
-                            fsm_st_i2c <= GET_DATA;
-                        end
-                    end
-                    else if (step_acknoledge == 3) begin
-                        en_scl <= 1'b0;
+                else if (cnt_bits == 8) begin
+                    i2c_io_mode         <= 1'b0;
+                    status_acknowledge  <= sda_i;
+                end
+                else if (cnt_bits == 9) begin
+                    sda_o <= 1'bz;
+                end
+                else if (cnt_bits == 10) begin
+                    cnt_bits    <= 0;
+                    en_scl      <= 1'b0;
                     
-                        fsm_st_i2c <= SEND_STOP_CONDITION;
-                    end
+                    fsm_st_CCI <= READ_DATA;
                 end
-                
-                SEND_REGISTER_ADDRESS: begin
-                    cnt_bits <= cnt_bits + 1;
-                    if (cnt_bits <= 7) begin
-                        sda_o           <= protocol[31];
-                        protocol[31:1]  <= protocol[30:0];
-                    end
-                    else begin
-                        cnt_bits <= 0;
-                        
-                        fsm_st_i2c <= GET_ACKNOWLEDGE;
-                    end
+            end
+            
+            /*
+            PREPEARE_FOR_READING: begin
+                cnt_bits <= cnt_bits + 1;
+                if (cnt_bits == 0) begin
+                    sda_o <= 1'b0;
                 end
-
-                SEND_DATA: begin
-                    cnt_bits <= cnt_bits + 1;
-                    if (cnt_bits <= 7) begin
-                        sda_o           <= protocol[31];
-                        protocol[31:1]  <= protocol[30:0];
-                    end
-                    else begin
-                        sda_o       <= 1'b0;
-                        cnt_bits    <= 0;
-                        
-                        fsm_st_i2c <= GET_ACKNOWLEDGE;
-                    end
+                else if (cnt_bits < 9) begin
+                    en_scl                      <= 1'b1;
+                    sda_o                       <= repeated_slave_address[7];
+                    repeated_slave_address[7:1] <= repeated_slave_address[6:0];
                 end
-                
-                SEND_ACKNOWLEDGE: begin
-                    en_scl <= 1'b0;
-                
-                    fsm_st_i2c <= SEND_STOP_CONDITION;
-                end
-                
-                SEND_STOP_CONDITION: begin
-                    sda_o <= 1'b1;
+                else if (cnt_bits == 9) begin
+                    i2c_io_mode         <= 1'b0;
+                    status_acknowledge  <= sda_i;
+                    cnt_bits            <= 0;
                     
-                    fsm_st_i2c <= IDLE;
+                    fsm_st_CCI <= WRITE_DATA;
                 end
-                
-            endcase
-        end
+            end
+            */
+            
+            /*
+            READ_DATA: begin
+                cnt_bits <= cnt_bits + 1;
+                if (cnt_bits < 8) begin
+                    i2c_io_mode     <= 1'b1;
+                    data_tx[0]      <= sda_i;
+                    data_tx[7:1]    <= data_tx[6:0];
+                end
+                else if (cnt_bits == 8) begin
+                    i2c_io_mode <= 1'b1;
+                    sda_o       <= 1'b0;
+                end
+                else if (cnt_bits == 9) begin
+                    sda_o <= 1'bz;
+                end
+                else if (cnt_bits == 10) begin
+                    cnt_bits    <= 0;
+                    en_scl      <= 1'b0;
+                    
+                    fsm_st_CCI <= READ_DATA;
+                end
+            end
+            */
+        endcase
     end
     
-    always@ (posedge clk) begin
-        if (fsm_st_i2c == GET_ACKNOWLEDGE) begin
-            status_acknowledge <= sda_i;
-        end
-    end
-    
-    assign scl = en_scl ? clk : 1'b1;
-    
+   assign scl = en_scl ? clk : 1'bz;
+    //assign scl = clk;
 endmodule

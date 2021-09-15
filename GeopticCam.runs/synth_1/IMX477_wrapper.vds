@@ -1,0 +1,379 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Sep 15 17:03:10 2021
+# Process ID: 1596
+# Current directory: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/synth_1
+# Command line: vivado.exe -log IMX477_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IMX477_wrapper.tcl
+# Log file: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/synth_1/IMX477_wrapper.vds
+# Journal file: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source IMX477_wrapper.tcl -notrace
+Command: synth_design -top IMX477_wrapper -part xc7a35tftg256-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tftg256-2
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 9244 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 798.609 ; gain = 181.820
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'IMX477_wrapper' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/IMX477_wrapper.v:22]
+INFO: [Synth 8-6157] synthesizing module 'I2C_CCI' [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/I2C_CCI.v:23]
+	Parameter IDLE bound to: 3'b000 
+	Parameter SEND_INDEX bound to: 3'b001 
+	Parameter PREPEARE_FOR_READING bound to: 3'b010 
+	Parameter READ_DATA bound to: 3'b011 
+	Parameter WRITE_DATA bound to: 3'b100 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/I2C_CCI.v:59]
+WARNING: [Synth 8-3848] Net i2c_ready in module/entity I2C_CCI does not have driver. [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/I2C_CCI.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'I2C_CCI' (1#1) [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/I2C_CCI.v:23]
+INFO: [Synth 8-6157] synthesizing module 'IOBUF' [D:/Program/Xilinx/Vivado2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115]
+	Parameter DRIVE bound to: 12 - type: integer 
+	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+	Parameter SLEW bound to: SLOW - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (2#1) [D:/Program/Xilinx/Vivado2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115]
+INFO: [Synth 8-6157] synthesizing module 'OBUF' [D:/Program/Xilinx/Vivado2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:45998]
+	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
+	Parameter DRIVE bound to: 12 - type: integer 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+	Parameter SLEW bound to: SLOW - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'OBUF' (3#1) [D:/Program/Xilinx/Vivado2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:45998]
+INFO: [Synth 8-6155] done synthesizing module 'IMX477_wrapper' (4#1) [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/sources_1/new/IMX477_wrapper.v:22]
+WARNING: [Synth 8-3331] design I2C_CCI has unconnected port i2c_ready
+WARNING: [Synth 8-3331] design I2C_CCI has unconnected port reset
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 862.242 ; gain = 245.453
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 862.242 ; gain = 245.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 862.242 ; gain = 245.453
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc]
+Finished Parsing XDC File [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Library_Projects_FPGA/GeopticCam/GeopticCam.srcs/constrs_1/new/GeopticCam_pins.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IMX477_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/IMX477_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 966.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 1 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 966.508 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 966.508 ; gain = 349.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tftg256-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 966.508 ; gain = 349.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 966.508 ; gain = 349.719
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'fsm_st_CCI_reg' in module 'I2C_CCI'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                              000
+              SEND_INDEX |                             0010 |                              001
+              WRITE_DATA |                             0100 |                              100
+                  iSTATE |                             1000 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'fsm_st_CCI_reg' using encoding 'one-hot' in module 'I2C_CCI'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 966.508 ; gain = 349.719
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     15 Bit        Muxes := 4     
+	   4 Input     15 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 7     
+	   4 Input      5 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 26    
+	   4 Input      1 Bit        Muxes := 7     
+	   3 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module IMX477_wrapper 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module I2C_CCI 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     15 Bit        Muxes := 4     
+	   4 Input     15 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 7     
+	   4 Input      5 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 26    
+	   4 Input      1 Bit        Muxes := 7     
+	   3 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3332] Sequential element (camera_interface_config/FSM_onehot_fsm_st_CCI_reg[3]) is unused and will be removed from module IMX477_wrapper.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/register_address_reg[1] )
+INFO: [Synth 8-3886] merging instance 'camera_interface_config/register_address_reg[2]' (FDE_1) to 'camera_interface_config/register_address_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/slave_address_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/register_address_reg[1] )
+INFO: [Synth 8-3886] merging instance 'camera_interface_config/register_address_reg[3]' (FDE_1) to 'camera_interface_config/register_address_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/register_address_reg[1] )
+INFO: [Synth 8-3886] merging instance 'camera_interface_config/register_address_reg[4]' (FDE_1) to 'camera_interface_config/register_address_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/register_address_reg[1] )
+INFO: [Synth 8-3886] merging instance 'camera_interface_config/register_address_reg[5]' (FDE_1) to 'camera_interface_config/register_address_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/register_address_reg[1] )
+INFO: [Synth 8-3886] merging instance 'camera_interface_config/register_address_reg[6]' (FDE_1) to 'camera_interface_config/register_address_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/register_address_reg[1] )
+INFO: [Synth 8-3886] merging instance 'camera_interface_config/register_address_reg[7]' (FDE_1) to 'camera_interface_config/register_address_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_interface_config/register_address_reg[1] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 966.508 ; gain = 349.719
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 966.508 ; gain = 349.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 966.508 ; gain = 349.719
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 969.500 ; gain = 352.711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++---------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name    | RTL Name                                         | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++---------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|IMX477_wrapper | camera_interface_config/register_address_reg[15] | 8      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|IMX477_wrapper | camera_interface_config/slave_address_reg[7]     | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|IMX477_wrapper | camera_interface_config/register_to_send_reg[7]  | 7      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++---------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     2|
+|3     |LUT1   |     5|
+|4     |LUT2   |     5|
+|5     |LUT3   |     5|
+|6     |LUT4   |     3|
+|7     |LUT5   |     7|
+|8     |LUT6   |    16|
+|9     |SRL16E |     3|
+|10    |FDRE   |    18|
+|11    |FDSE   |     6|
+|12    |IBUF   |     2|
+|13    |IOBUF  |     1|
+|14    |OBUF   |     2|
+|15    |OBUFT  |     1|
++------+-------+------+
+
+Report Instance Areas: 
++------+--------------------------+--------+------+
+|      |Instance                  |Module  |Cells |
++------+--------------------------+--------+------+
+|1     |top                       |        |    77|
+|2     |  camera_interface_config |I2C_CCI |    56|
++------+--------------------------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 974.301 ; gain = 253.246
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 974.301 ; gain = 357.512
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 3 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 995.527 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 1 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+39 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 995.527 ; gain = 638.914
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 995.527 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/synth_1/IMX477_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file IMX477_wrapper_utilization_synth.rpt -pb IMX477_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 15 17:03:36 2021...

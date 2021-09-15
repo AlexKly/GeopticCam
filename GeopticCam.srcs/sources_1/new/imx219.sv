@@ -55,7 +55,13 @@ module imx219 #(
     // IMX219 Model ID did not match
     output logic model_err = 1'b0,
     output logic nack_err = 1'b0,
-    output logic [7:0] id_camera
+    
+    input clk_p_in,
+    input d0_p_in,
+    input d1_p_in,
+    output logic clk_p_out,
+    output logic d0_p_out,
+    output logic d1_p_out
 );
 
 logic [1:0] mode = 2'd2;
@@ -547,7 +553,6 @@ assign PRE_STREAM = '{
 	{1'b0, 16'h0169, resolution == 2'd0 ? 8'h00 : resolution == 2'd1 ? 8'hb4 : resolution == 2'd2 ? 8'h00: 8'hf0}, // Y-address start LSB
 	{1'b0, 16'h016a, resolution == 2'd0 ? 8'h09 : resolution == 2'd1 ? 8'h06 : resolution == 2'd2 ? 8'h09: 8'h06}, // Y-address end MSB
 	{1'b0, 16'h016b, resolution == 2'd0 ? 8'h9f : resolution == 2'd1 ? 8'heb : resolution == 2'd2 ? 8'h9f: 8'haf}, // Y-address end LSB
-
 	{1'b0, 16'h016c, resolution == 2'd0 ? 8'h0c : resolution == 2'd1 ? 8'h07 : resolution == 2'd2 ? 8'h06 : 8'h02}, // X-output size MSB
 	{1'b0, 16'h016d, resolution == 2'd0 ? 8'hd0 : resolution == 2'd1 ? 8'h80 : resolution == 2'd2 ? 8'h68 : 8'h80}, // X-output size LSB
 	{1'b0, 16'h016e, resolution == 2'd0 ? 8'h09 : resolution == 2'd1 ? 8'h04 : resolution == 2'd2 ? 8'h04 : 8'h01}, // Y-output size MSB
@@ -604,7 +609,7 @@ assign POST_STREAM = '{
 // 7 = Error
 logic [2:0] sensor_state = 3'd0;
 
-logic [7:0] rom_counter = 8'd0;
+logic [8:0] rom_counter = 9'd0;
 logic [1:0] byte_counter = 2'd0;
 
 // Uninit, Standby, or Stream
@@ -612,14 +617,15 @@ assign ready = sensor_state == 3'd0 || sensor_state == 3'd2 || sensor_state == 3
 
 assign power_enable = sensor_state != 3'd0;
 
-logic [7:0] rom_end;
-assign rom_end = sensor_state == 3'd1 ? 8'd2 : sensor_state == 3'd3 ? 8'd58 : sensor_state == 3'd6 ? 8'd0 : 8'd0;
+logic [8:0] rom_end;
+assign rom_end = sensor_state == 3'd1 ? 9'd2 : sensor_state == 3'd3 ? 9'd416 : sensor_state == 3'd6 ? 9'd0 : 9'd0;
 
 logic [24:0] current_rom;
 assign current_rom = sensor_state == 3'd1 ? PRE_STANDBY[rom_counter] : sensor_state == 3'd3 ? PRE_STREAM[rom_counter] : sensor_state == 3'd6 ? POST_STREAM[rom_counter] : 25'd0;
 
 always @(posedge clk_in)
 begin
+  
     case (sensor_state)
         3'd0: begin 
 			if (mode != 2'd0)
@@ -633,7 +639,7 @@ begin
 					transfer_start <= 1'b0;
 					transfer_continues <= 1'b0;
 					byte_counter <= 2'd0;
-					rom_counter <= 8'd0;
+					rom_counter <= 9'd0;
 					nack_err <= 1'd1;
 					sensor_state <= 3'd7;
 				end
@@ -669,15 +675,14 @@ begin
 
 					if (current_rom[24] && current_rom[7:0] != data_rx) // Read did not match expected
 					begin
-					   id_camera <= data_rx;
-						rom_counter <= 8'd0;
+						rom_counter <= 9'd0;
 						if (sensor_state == 3'd1) // was a model error
 							model_err <= 1'd1;
 						sensor_state <= 3'd7;
 					end
 					else if (rom_counter == rom_end) // This was the last operation
 					begin
-						rom_counter <= 8'd0;
+						rom_counter <= 9'd0;
 						if (sensor_state == 3'd5)
 							sensor_state <= 3'd4; // Modifications complete
 						else if (sensor_state == 3'd6)
@@ -716,5 +721,9 @@ begin
         end
     endcase
 end
+
+    assign clk_p_out = clk_p_in;
+    assign d0_p_out = d0_p_in;
+    assign d1_p_out = d1_p_in;
 
 endmodule

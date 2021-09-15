@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon Sep 13 13:12:23 2021
-# Process ID: 3964
+# Start of session at: Wed Sep 15 17:03:43 2021
+# Process ID: 8888
 # Current directory: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/impl_1
-# Command line: vivado.exe -log imx219.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source imx219.tcl -notrace
-# Log file: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/impl_1/imx219.vdi
+# Command line: vivado.exe -log IMX477_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source IMX477_wrapper.tcl -notrace
+# Log file: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/impl_1/IMX477_wrapper.vdi
 # Journal file: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
-source imx219.tcl -notrace
+source IMX477_wrapper.tcl -notrace

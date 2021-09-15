@@ -1,45 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-2" LaunchTime="1631527904">
-  <File Type="PA-TCL" Name="imx219.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="imx219_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="imx219_reports.tcl"/>
-  <File Type="RDS-RDS" Name="imx219.vds"/>
-  <File Type="RDS-UTIL" Name="imx219_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="imx219_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="imx219.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="imx219_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="imx219_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-2" LaunchTime="1631714588">
+  <File Type="PA-TCL" Name="IMX477_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="IMX477_wrapper_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="IMX477_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="IMX477_wrapper.vds"/>
+  <File Type="RDS-UTIL" Name="IMX477_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="IMX477_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="IMX477_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="IMX477_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="IMX477_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/clock.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/i2c_core.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/i2c_master.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/imx219.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/I2C_CCI.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/IMX477_wrapper.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/led_top.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -47,7 +33,31 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/IMX477_wrapper.v">
+    <File Path="$PSRCDIR/sources_1/new/clock.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/i2c_core.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/i2c_master.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/imx219.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -65,7 +75,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="imx219"/>
+      <Option Name="TopModule" Val="IMX477_wrapper"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -77,6 +87,7 @@
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/GeopticCam_pins.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>

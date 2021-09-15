@@ -42,44 +42,34 @@ architecture Behavioral of tb_I2C_CCI is
             -- Common ports:
             clk                 : in std_logic;
             reset               : in std_logic;
+            start_i2c           : in std_logic;
     
             -- I2C ports:
             scl                 : out std_logic;
             sda_o               : out std_logic;
             sda_i               : in std_logic;
     
-            -- Data ports:
-            tvalid_data_wr      : in std_logic;
-            slave_addr          : in std_logic_vector(7 downto 0);
-            register_addr       : in std_logic_vector(15 downto 0);
-            data_wr             : in std_logic_vector(7 downto 0);
-            tvalid_data_rd      : out std_logic;
-            data_rd             : out std_logic_vector(7 downto 0);
-    
             -- Status I2C ports:
             i2c_ready           : out std_logic;
+            i2c_io_mode         : out std_logic;
             status_acknowledge  : out std_logic
         );
     end component;
 
     -- Inputs:
-    signal clk                  : std_logic                     := '0';
-    signal reset                : std_logic                     := '0';
-    signal sda_i                : std_logic                     := '0';
-    signal tvalid_data_wr       : std_logic                     := '0';
-    signal slave_addr           : std_logic_vector(7 downto 0)  := (others => '0');
-    signal register_addr        : std_logic_vector(15 downto 0) := (others => '0');
-    signal data_wr              : std_logic_vector(7 downto 0)  := (others => '0');
+    signal clk                  : std_logic := '0';
+    signal reset                : std_logic := '0';
+    signal start_i2c            : std_logic := '0';
+    signal sda_i                : std_logic := '0';
     
     -- Outputs:
     signal scl                  : std_logic;
     signal sda_o                : std_logic;
-    signal tvalid_data_rd       : std_logic;
-    signal data_rd              : std_logic_vector(7 downto 0);
     signal i2c_ready            : std_logic;
+    signal i2c_io_mode          : std_logic;
     signal status_acknowledge   : std_logic;
 
-    constant clk_period         : time                          := 100.00 ns;
+    constant clk_period         : time      := 2.5 us;
 
 begin
 
@@ -91,20 +81,15 @@ begin
     end process clk_generator;
     
     main_sim: process begin
-            wait for 200 ns;
-        tvalid_data_wr <= '1';
-        slave_addr <= "00100000";
-        register_addr <= x"0100";
-        data_wr <= x"01";
-            wait for clk_period;
-        tvalid_data_wr <= '0';
-            wait for clk_period * 8;
+            wait for clk_period * 10;
+        start_i2c <= '1';
+            wait for clk_period * 9;
         sda_i <= '1';
-            wait for clk_period * 8;
-        sda_i <= '1';
-            wait for clk_period * 8;
-        sda_i <= '1';
-            
+            wait for clk_period * 9;
+         sda_i <= '0';
+            wait for clk_period * 9;
+         sda_i <= '1'; 
+           
             wait;
     end process main_sim;
     
@@ -112,22 +97,16 @@ begin
         -- Common ports:
         clk                 => clk,
         reset               => reset,
+        start_i2c           => start_i2c,
         
         -- I2C ports:
         scl                 => scl,
         sda_o               => sda_o,
         sda_i               => sda_i,
-        
-        -- Data ports:
-        tvalid_data_wr      => tvalid_data_wr,
-        slave_addr          => slave_addr,
-        register_addr       => register_addr,
-        data_wr             => data_wr,
-        tvalid_data_rd      => tvalid_data_rd,
-        data_rd             => data_rd,
 
         -- Status I2C ports:
         i2c_ready           => i2c_ready,
+        i2c_io_mode         => i2c_io_mode,
         status_acknowledge  => status_acknowledge
     );
 

@@ -54,15 +54,13 @@ extern void execute_8(char*, char *);
 extern void execute_9(char*, char *);
 extern void execute_15(char*, char *);
 extern void execute_16(char*, char *);
+extern void execute_23(char*, char *);
 extern void execute_24(char*, char *);
 extern void execute_25(char*, char *);
 extern void execute_26(char*, char *);
-extern void execute_27(char*, char *);
-extern void execute_28(char*, char *);
 extern void execute_18(char*, char *);
 extern void execute_19(char*, char *);
-extern void execute_20(char*, char *);
-extern void execute_23(char*, char *);
+extern void execute_22(char*, char *);
 extern void vlog_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
 extern void transaction_32(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_33(char*, char*, unsigned, unsigned, unsigned);
@@ -78,26 +76,18 @@ extern void transaction_42(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_43(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_44(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_45(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_46(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_47(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_48(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_50(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_51(char*, char*, unsigned, unsigned, unsigned);
 extern void transaction_52(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_53(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_54(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_55(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_57(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_59(char*, char*, unsigned, unsigned, unsigned);
-extern void transaction_61(char*, char*, unsigned, unsigned, unsigned);
-funcp funcTab[46] = {(funcp)execute_2, (funcp)execute_3, (funcp)execute_4, (funcp)execute_5, (funcp)execute_6, (funcp)execute_7, (funcp)execute_8, (funcp)execute_9, (funcp)execute_15, (funcp)execute_16, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)execute_27, (funcp)execute_28, (funcp)execute_18, (funcp)execute_19, (funcp)execute_20, (funcp)execute_23, (funcp)vlog_transfunc_eventcallback, (funcp)transaction_32, (funcp)transaction_33, (funcp)transaction_34, (funcp)transaction_35, (funcp)transaction_36, (funcp)transaction_37, (funcp)transaction_38, (funcp)transaction_39, (funcp)transaction_40, (funcp)transaction_41, (funcp)transaction_42, (funcp)transaction_43, (funcp)transaction_44, (funcp)transaction_45, (funcp)transaction_46, (funcp)transaction_47, (funcp)transaction_48, (funcp)transaction_50, (funcp)transaction_51, (funcp)transaction_52, (funcp)transaction_53, (funcp)transaction_54, (funcp)transaction_55, (funcp)transaction_57, (funcp)transaction_59, (funcp)transaction_61};
-const int NumRelocateId= 46;
+funcp funcTab[36] = {(funcp)execute_2, (funcp)execute_3, (funcp)execute_4, (funcp)execute_5, (funcp)execute_6, (funcp)execute_7, (funcp)execute_8, (funcp)execute_9, (funcp)execute_15, (funcp)execute_16, (funcp)execute_23, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)execute_18, (funcp)execute_19, (funcp)execute_22, (funcp)vlog_transfunc_eventcallback, (funcp)transaction_32, (funcp)transaction_33, (funcp)transaction_34, (funcp)transaction_35, (funcp)transaction_36, (funcp)transaction_37, (funcp)transaction_38, (funcp)transaction_39, (funcp)transaction_40, (funcp)transaction_41, (funcp)transaction_42, (funcp)transaction_43, (funcp)transaction_44, (funcp)transaction_45, (funcp)transaction_47, (funcp)transaction_48, (funcp)transaction_50, (funcp)transaction_52};
+const int NumRelocateId= 36;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/tb_i2c_cci_behav/xsim.reloc",  (void **)funcTab, 46);
-	iki_vhdl_file_variable_register(dp + 15000);
-	iki_vhdl_file_variable_register(dp + 15056);
+	iki_relocate(dp, "xsim.dir/tb_i2c_cci_behav/xsim.reloc",  (void **)funcTab, 36);
+	iki_vhdl_file_variable_register(dp + 13040);
+	iki_vhdl_file_variable_register(dp + 13096);
 
 
 	/*Populate the transaction function pointer field in the whole net structure */
@@ -113,19 +103,13 @@ void simulate(char *dp)
 		iki_schedule_processes_at_time_zero(dp, "xsim.dir/tb_i2c_cci_behav/xsim.reloc");
 	// Initialize Verilog nets in mixed simulation, for the cases when the value at time 0 should be propagated from the mixed language Vhdl net
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 20096, dp + 22776, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 18136, dp + 20264, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 20152, dp + 22832, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 18192, dp + 20320, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 20208, dp + 23000, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 18248, dp + 20376, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 20264, dp + 23056, 0, 0, 0, 0, 1, 1);
-
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 20320, dp + 23112, 0, 7, 0, 7, 8, 1);
-
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 20360, dp + 23168, 0, 15, 0, 15, 16, 1);
-
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 20400, dp + 23224, 0, 7, 0, 7, 8, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 18304, dp + 20544, 0, 0, 0, 0, 1, 1);
 	iki_execute_processes();
 
 	// Schedule resolution functions for the multiply driven Verilog nets that have strength
