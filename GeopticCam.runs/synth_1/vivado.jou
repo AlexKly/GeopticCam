@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Thu Sep 16 13:41:19 2021
-# Process ID: 7024
+# Start of session at: Thu Sep 16 17:44:35 2021
+# Process ID: 12080
 # Current directory: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/synth_1
 # Command line: vivado.exe -log IMX477_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IMX477_wrapper.tcl
 # Log file: D:/Library_Projects_FPGA/GeopticCam/GeopticCam.runs/synth_1/IMX477_wrapper.vds

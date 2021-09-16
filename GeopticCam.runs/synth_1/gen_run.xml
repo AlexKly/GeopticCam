@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-2" LaunchTime="1631788877">
+<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-2" LaunchTime="1631803474">
   <File Type="PA-TCL" Name="IMX477_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="IMX477_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="IMX477_wrapper_reports.tcl"/>

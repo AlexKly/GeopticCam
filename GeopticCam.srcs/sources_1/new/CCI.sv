@@ -21,32 +21,39 @@
 
 
 module CCI #(
-    parameter int INPUT_CLK_RATE,
-    parameter int TARGET_SCL_RATE = 400000,
-    // Some IMX219 modules have a different address, change this if yours does
-    parameter bit [7:0] ADDRESS = 8'h34
+    parameter int       INPUT_CLK_RATE,
+    parameter int       TARGET_SCL_RATE = 400000,
+    // Some IMX477 modules have a different address, change this if yours does
+    parameter bit [7:0] ADDRESS         = 8'h34
 ) (
-    input logic clk_in,
-    inout wire scl,
-    inout wire sda,
+    input logic         clk_in,
+    inout wire          scl,
+    inout wire          sda,
     // 0 = Power off
     // 1 = Software standby
     // 2 = Streaming
-    input logic [1:0] mode,
+    input logic [1:0]   mode,
 
     // 0 = 3280x2464
     // 1 = 1920x1080
     // 2 = 1640x1232
     // 3 = 640x480
-    input logic [1:0] resolution,
+    input logic [1:0]   resolution,
     // 0 = RAW8
     // 1 = RAW10
-    input logic format,
-    // input logic horizontal_flip,
-    // input logic vertical_flip,
-    // input logic [7:0] analog_gain,
-    // input logic [15:0] digital_gain,
-    // input logic [15:0] exposure, // aka integration time
+    input logic         format,
+    // 0 = No mirror
+    // 1 = Horizontal mirror
+    input logic         horizontal_flip,
+    // 0 = No flip
+    // 1 = Vertical flip
+    input logic         vertical_flip,
+    // Range of values: 0x0000 to 0x03D2
+    input logic [15:0]  analog_gain,
+    // Range of values: 0x0100 to 0xFFFF
+    input logic [15:0]  digital_gain,
+    // Range of values: 0x0100 to 0xFFFF
+    input logic [15:0]  exposure, // aka integration time
 
     // Goes high when inputs match sensor state
     // Changing inputs when the sensor isn't ready could put the sensor into an unexpected state
@@ -90,18 +97,26 @@ i2c_master #(.INPUT_CLK_RATE(INPUT_CLK_RATE), .TARGET_SCL_RATE(TARGET_SCL_RATE))
 
 logic [15:0] MODEL_ID = 16'h0477;
 
-logic [24:0] PRE_STANDBY [0:2];
+logic [24:0] PRE_STANDBY [0:4];
 assign PRE_STANDBY = '{
     {1'b1, 16'h0016, MODEL_ID[15:8]},   // Read module_model_id high
 	{1'b1, 16'h0017, MODEL_ID[7:0]},    // Read module_model_id low
-	// {1'b0, 16'h0100, 8'd1},				// mode_select <= streaming (forces LP-11 on standby) 
+	{1'b0, 16'h0104, 2'h01},            // Magic for IMX477
+    {1'b0, 16'h0104, 2'h00},            // Magic for IMX477
+	// {1'b0, 16'h0100, 8'd1},			// mode_select <= streaming (forces LP-11 on standby) 
     {1'b0, 16'h0100, 8'd0}              // mode_select <= standby
 };
 
-logic [24:0] PRE_STREAM [0:0];
+logic [24:0] PRE_STREAM [0:7];
 assign PRE_STREAM = '{
-    //{1'b0, 16'h0101, 8'h00},    // Orientation: 0 - no mirror/flip, 1 - horizontal mirror/vertical flip
-	{1'b0, 16'h0100, 8'h01}     // Start streaming
+    {1'b0, 16'h0101, {6'b000000, vertical_flip, horizontal_flip}},      // Orientation image: 0 - no mirror/flip, 1 - horizontal mirror/vertical flip
+    {1'b0, 16'h0204, analog_gain[15:8]},                                // Analogue Gain Settings MSB 
+    {1'b0, 16'h0205, analog_gain[7:0]},                                 // Analogue Gain Settings LSB (Range of values: from 0 to 978. Step: 1)
+    {1'b0, 16'h020E, digital_gain[15:8]},                               // Digital Gain Settings MSB
+    {1'b0, 16'h020F, digital_gain[7:0]},                                // Digital Gain Settings LSB (Range of values: from 256 to 65535)
+    {1'b0, 16'h0202, exposure[15:8]},                                   // coarse_integration_time MSB
+    {1'b0, 16'h0202, exposure[7:0]},                                    // coarse_integration_time LSB (Range of values: from 4 to 65535. Step: 1)
+	{1'b0, 16'h0100, 8'h01}                                             // Start streaming
 };
 
 logic [24:0] POST_STREAM [0:0];

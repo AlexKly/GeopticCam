@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Thu Sep 16 13:42:18 2021
+| Date         : Thu Sep 16 17:45:32 2021
 | Host         : B51-314-TS-W1 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file IMX477_wrapper_control_sets_placed.rpt
 | Design       : IMX477_wrapper
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     8 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    27 |
+| Unused register locations in slices containing registers |    24 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -41,8 +41,8 @@ Table of Contents
 +--------------------+-------+
 | Total control sets |     8 |
 | >= 0 to < 4        |     1 |
-| >= 4 to < 6        |     5 |
-| >= 6 to < 8        |     1 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     2 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
@@ -58,29 +58,29 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              23 |           17 |
+| No           | No                    | No                     |              24 |           14 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              20 |           10 |
+| Yes          | No                    | No                     |              25 |           12 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              10 |            4 |
+| Yes          | Yes                   | No                     |               7 |            4 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+------------------------------------------------------------------------+------------------------------------------------------------------+------------------+----------------+
-|  Clock Signal  |                              Enable Signal                             |                         Set/Reset Signal                         | Slice Load Count | Bel Load Count |
-+----------------+------------------------------------------------------------------------+------------------------------------------------------------------+------------------+----------------+
-|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/sensor_state_reg[0]            |                                                                  |                1 |              2 |
-|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/byte_counter_reg[0]_0[0] |                                                                  |                2 |              4 |
-|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/counter_reg[6]_0[0]      |                                                                  |                2 |              4 |
-|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/byte_counter_reg[0][0]   |                                                                  |                2 |              4 |
-|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/counter[6]_i_2_n_0       | camera_interface_config/i2c_master/core/clock/counter[6]_i_1_n_0 |                2 |              5 |
-|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/sensor_state_reg[0]            | camera_interface_config/i2c_master/core/rom_counter_reg[6]       |                2 |              5 |
-|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/E[0]                     |                                                                  |                3 |              6 |
-|  clk_IBUF_BUFG |                                                                        |                                                                  |               17 |             23 |
-+----------------+------------------------------------------------------------------------+------------------------------------------------------------------+------------------+----------------+
++----------------+----------------------------------------------------------------------+------------------------------------------------------------------+------------------+----------------+
+|  Clock Signal  |                             Enable Signal                            |                         Set/Reset Signal                         | Slice Load Count | Bel Load Count |
++----------------+----------------------------------------------------------------------+------------------------------------------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/sensor_state_reg[2]_0        | camera_interface_config/rom_counter[6]_i_1_n_0                   |                1 |              2 |
+|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/counter_reg[4]_0[0]    |                                                                  |                2 |              4 |
+|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/sensor_state_reg[2][0] |                                                                  |                2 |              4 |
+|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/sensor_state_reg[2]_0        |                                                                  |                1 |              4 |
+|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/counter[6]_i_2_n_0     | camera_interface_config/i2c_master/core/clock/counter[6]_i_1_n_0 |                3 |              5 |
+|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/E[0]                   |                                                                  |                3 |              6 |
+|  clk_IBUF_BUFG | camera_interface_config/i2c_master/core/clock/state_reg_2[0]         |                                                                  |                4 |              7 |
+|  clk_IBUF_BUFG |                                                                      |                                                                  |               14 |             24 |
++----------------+----------------------------------------------------------------------+------------------------------------------------------------------+------------------+----------------+
 
 

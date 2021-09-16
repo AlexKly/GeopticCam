@@ -53,11 +53,18 @@ module IMX477_wrapper(
         // 0 = RAW8
         // 1 = RAW10
         .format(1'b0),
-        // input logic horizontal_flip,
-        // input logic vertical_flip,
-        // input logic [7:0] analog_gain,
-        // input logic [15:0] digital_gain,
-        // input logic [15:0] exposure, // aka integration time
+        // 0 = No mirror
+        // 1 = Horizontal mirror
+        .horizontal_flip(1'b0),
+        // 0 = No flip
+        // 1 = Vertical flip
+        .vertical_flip(1'b0),
+        // Range of values: 0x0000 to 0x03D2
+        .analog_gain(16'h00FF),
+        // Range of values: 0x0100 to 0xFFFF
+        .digital_gain(16'h0100),
+        // Range of values: 0x0100 to 0xFFFF
+        .exposure(16'hFFFF), // aka integration time
 
         // Goes high when inputs match sensor state
         // Changing inputs when the sensor isn't ready could put the sensor into an unexpected state
