@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Sep 15 17:04:23 2021
+| Date         : Thu Sep 16 13:42:36 2021
 | Host         : B51-314-TS-W1 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file IMX477_wrapper_timing_summary_routed.rpt -pb IMX477_wrapper_timing_summary_routed.pb -rpx IMX477_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : IMX477_wrapper
@@ -53,9 +53,7 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 9 register/latch pins with no clock driven by root clock pin: clk (HIGH)
-
- There are 19 register/latch pins with no clock driven by root clock pin: clk_400K_reg/Q (HIGH)
+ There are 53 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock
@@ -70,7 +68,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 44 pins that are not constrained for maximum delay. (HIGH)
+ There are 93 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
