@@ -1,0 +1,1 @@
+--relax --debug typical --mt auto -L mipi_dphy_v4_1_3 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mipi_dphy xil_defaultlib.mipi_dphy xil_defaultlib.glbl -log elaborate.log

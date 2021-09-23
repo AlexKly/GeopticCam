@@ -1,0 +1,10 @@
+xpm_cdc.sv,systemverilog,xil_defaultlib,../../../../../../Program/Xilinx/Vivado2019/Vivado/2019.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,
+xpm_fifo.sv,systemverilog,xil_defaultlib,../../../../../../Program/Xilinx/Vivado2019/Vivado/2019.1/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv,
+xpm_memory.sv,systemverilog,xil_defaultlib,../../../../../../Program/Xilinx/Vivado2019/Vivado/2019.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../Program/Xilinx/Vivado2019/Vivado/2019.1/data/ip/xpm/xpm_VCOMP.vhd,
+mipi_dphy_v4_1_vl_rfs.sv,systemverilog,mipi_dphy_v4_1_3,../../../ipstatic/hdl/mipi_dphy_v4_1_vl_rfs.sv,
+mipi_dphy_support.v,verilog,xil_defaultlib,../../../../GeopticCam.srcs/sources_1/ip/mipi_dphy/mipi_dphy/support/mipi_dphy_support.v,
+mipi_dphy_c1.v,verilog,xil_defaultlib,../../../../GeopticCam.srcs/sources_1/ip/mipi_dphy/mipi_dphy_c1.v,
+mipi_dphy_core.v,verilog,xil_defaultlib,../../../../GeopticCam.srcs/sources_1/ip/mipi_dphy/mipi_dphy_core.v,
+mipi_dphy.v,verilog,xil_defaultlib,../../../../GeopticCam.srcs/sources_1/ip/mipi_dphy/mipi_dphy.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

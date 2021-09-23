@@ -25,7 +25,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log IMX477_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source IMX477_wrapper.tcl -notrace" );
+         "-log GeopticCam_main.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source GeopticCam_main.tcl -notrace" );
 
 
 

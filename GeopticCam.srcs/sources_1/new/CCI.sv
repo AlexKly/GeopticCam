@@ -107,7 +107,7 @@ assign PRE_STANDBY = '{
     {1'b0, 16'h0100, 8'd0}              // mode_select <= standby
 };
 
-logic [24:0] PRE_STREAM [0:7];
+logic [24:0] PRE_STREAM [0:15];
 assign PRE_STREAM = '{
     {1'b0, 16'h0101, {6'b000000, vertical_flip, horizontal_flip}},      // Orientation image: 0 - no mirror/flip, 1 - horizontal mirror/vertical flip
     {1'b0, 16'h0204, analog_gain[15:8]},                                // Analogue Gain Settings MSB 
@@ -116,6 +116,27 @@ assign PRE_STREAM = '{
     {1'b0, 16'h020F, digital_gain[7:0]},                                // Digital Gain Settings LSB (Range of values: from 256 to 65535)
     {1'b0, 16'h0202, exposure[15:8]},                                   // coarse_integration_time MSB
     {1'b0, 16'h0202, exposure[7:0]},                                    // coarse_integration_time LSB (Range of values: from 4 to 65535. Step: 1)
+    {1'b0, 16'h0112, 8'h08},                                            // CSI_DATA_FORMAT_A[15:8] (RAW8 - 0x08, RAW10 - 0x0A)
+    {1'b0, 16'h0113, 8'h08},                                            // CSI_DATA_FORMAT_A[7:0] (RAW8 - 0x08, RAW10 - 0x0A)
+    {1'b0, 16'h0136, 8'h18},                                            // EXCK_FREQ[15:8] - INCK frequency [MHz] 0x18 - 24MHz
+    {1'b0, 16'h0137, 8'h00},                                            // EXCK_FREQ[7:0] - INCK frequency [MHz] 0x00 - 24MHz
+    //{1'b0, 16'h0340, 8'h08},                                            // FRM_LENGTH_A[15:8]
+    //{1'b0, 16'h0341, 8'h98},                                            // FRM_LENGTH_A[7:0]
+    //{1'b0, 16'h0342, 8'h31},                                            // LINE_LENGTH_A[15:8]
+    //{1'b0, 16'h0343, 8'hC4},                                            // LINE_LENGTH_A[7:0]
+    //{1'b0, 16'h0344, 8'h00},                                            // x_addr_start [11:8]
+    //{1'b0, 16'h0345, 8'h00},                                            // x_addr_start [7:0]
+    //{1'b0, 16'h0346, 8'h01},                                            // x_addr_end [11:8]
+    //{1'b0, 16'h0347, 8'hB8},                                            // x_addr_end [7:0]
+    //{1'b0, 16'h0348, 8'h0F},                                            // y_addr_start [11:8]
+    //{1'b0, 16'h0349, 8'hD7},                                            // y_addr_start [7:0]
+    //{1'b0, 16'h034A, 8'h0A},                                            // y_addr_end [11:8]
+    //{1'b0, 16'h034B, 8'h27},                                            // y_addr_end [7:0]
+    // Resolution image: 2048x1080
+    {1'b0, 16'h034C, 8'h08},                                            // x_output_size[11:8]
+    {1'b0, 16'h034D, 8'h00},                                            // x_output_size[7:0]
+    {1'b0, 16'h034E, 8'h04},                                            // y_output_size[11:8]
+    {1'b0, 16'h034F, 8'h38},                                            // y_output_size[7:0]
 	{1'b0, 16'h0100, 8'h01}                                             // Start streaming
 };
 
